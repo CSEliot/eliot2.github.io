@@ -59,10 +59,11 @@
 						<h2>Latest Games</h2>
 						<div class="row">
 							<article class="6u 12u$(xsmall) work-item" id="game1">
-								<img src="images/thumbs/game1.jpg" alt="" onclick="DoThang()" />
-								<script type='text/javascript' src='https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js'></script>
+								<a href="javascript:DoThang()" class="image fit thumb"><img src="images/thumbs/game1.jpg" alt=""/></a>
+								<script type="text/javascript" src="https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js"></script>
 								<script type="text/javascript">
 									function DoThang(){
+										
 										var config = {
 											width: 425, 
 											height: 275,
@@ -104,11 +105,11 @@
 													case "first":
 													break;
 												}
+											console.log("LONG SPAGHETTI");
 											});
 											u.initPlugin(jQuery("#game1")[0], "game.unity3d");
 										});
 									}
-								-->
 								</script>
 								<h3>Stars In Motion: Educational Space shooter</h3>
 								<p>A practice in Web Development, MySQL, Networking and Educational game design.</p>
