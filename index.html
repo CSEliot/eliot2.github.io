@@ -28,11 +28,11 @@
 		<!-- Header -->
 			<header id="header">
 				<a href="#" class="image avatar"><img src="images/avatar.jpg" alt="" /></a>
-				<h1><strong>Hello!</strong><br /> My name is
+				<h1><strong>Hello!<br /> My name is
 				Eliot Leo Carney-Seim. <br />
 				Senior in CompSci & Web & Game Dev. <br/><br />
 				President of UBMC's Game Developer's Club for
-				Professional Development.</h1>
+				Professional Development.</h1></strong>
 			</header>
 
 		<!-- Main -->
@@ -58,15 +58,17 @@
 					<section id="two">
 						<h2>Latest Games</h2>
 						<div class="row">
-							<article class="6u 12u$(xsmall) work-item" id="game1">
-								<a href="javascript:DoThang()" class="image fit thumb"><img src="images/thumbs/game1.jpg" alt=""/></a>
+							<article>
+								<h3>Stars In Motion: Educational Space shooter</h3>
+								<p>A practice in Web Development, MySQL, Networking and Educational game design.</p>
+								<p>Right Click for Fullscreen (Recommended)</p>
+								<a href="javascript:DoThang()" class="image fit thumb" id="game1"><img src="images/thumbs/game1.jpg" alt=""/></a>
 								<script type="text/javascript" src="https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js"></script>
 								<script type="text/javascript">
 									function DoThang(){
-										
 										var config = {
-											width: 425, 
-											height: 275,
+											width: 600, 
+											height: 600,
 											params: { enableDebugging:"0" }
 											
 										};
@@ -105,20 +107,16 @@
 													case "first":
 													break;
 												}
-											console.log("LONG SPAGHETTI");
 											});
 											u.initPlugin(jQuery("#game1")[0], "game.unity3d");
 										});
 									}
 								</script>
-								<h3>Stars In Motion: Educational Space shooter</h3>
-								<p>A practice in Web Development, MySQL, Networking and Educational game design.</p>
-								<p>Right Click for Fullscreen (Recommended)</p>
 							</article>
 							<article class="6u$ 12u$(xsmall) work-item">
+								<h3>DeThroned!</h3>
+								<p>A party card game with real-time combat and mystery player mechanic. Kickstarter coming soon!</p>
 								<a href="https://goo.gl/ohsNU3" class="image fit thumb"><img src="images/thumbs/game2.jpg" alt="" /></a>
-								<h3>Ultricies lacinia interdum</h3>
-								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
 							</article>
 							<article class="6u 12u$(xsmall) work-item">
 								<a href="images/fulls/03.jpg" class="image fit thumb"><img src="images/thumbs/03.jpg" alt="" /></a>
