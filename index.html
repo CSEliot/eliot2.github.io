@@ -89,13 +89,14 @@
 					<section id="two">
 						<h2>Latest Games</h2>
 						<div class="row">
-							<article>
+							<article class="6u 12u$(xsmall) work-item" id="game1">
 								<h3>Stars In Motion: Educational Space shooter [[NOTICE: Account creation disabled. Server under maintanence]]</h3>
 								<p>A practice in Web Development, MySQL, Networking and Educational game design.</p>
-								<a href="http://52.6.243.86:8083/" class="image fit thumb" id="game1"><img src="images/thumbs/game1.jpg" alt=""/></a>
+								<a href="javascript:DoThang()" class="image fit thumb" ><img src="images/thumbs/game1.jpg" alt=""/></a>
 								<script type="text/javascript" src="https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js"></script>
 								<script type="text/javascript">
 									function DoThang(){
+										console.log("Thang Begin");
 										var config = {
 											width: 600, 
 											height: 600,
@@ -140,6 +141,7 @@
 											});
 											u.initPlugin(jQuery("#game1")[0], "game.unity3d");
 										});
+									console.log("Thang End");
 									}
 								</script>
 							</article>
