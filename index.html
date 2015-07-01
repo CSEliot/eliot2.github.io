@@ -73,7 +73,8 @@
 							Check out any of my games or projects by clicking below.
 							</h2>
 						</header>
-						<p>To Get in contact with me, I have a form at the bottom of the page. Otherwise, buttons located at the 
+						<p>My interests include Web Development, Server hosting and managing, and Educational Game Development!
+						To Get in contact with me, I have a form at the bottom of the page. Otherwise, buttons located at the 
 						bottom left are linkedIn, Twitter, tumblr, Github, Bitbucket, Facebook and email. Follow me on your social media
 						of choice! </p>
 						<p> Click an image below to play or to learn more! 
@@ -88,82 +89,19 @@
 					<section id="two">
 						<h2>Latest Games</h2>
 						<div class="row">
-							<article>
-								<h3>Stars In Motion: Educational Space shooter</h3>
+							<article class="6u 12u$(xsmall) work-item">
+								<a href="images/thumbs/game1.jpg" class="image fit thumb"><img src="images/thumbs/game1.jpg" alt=""/></a>
+								<h3> <a href="http://52.6.243.86:8083/"> Stars In Motion: Educational Space shooter [Server back up!]</a></h3>
 								<p>A practice in Web Development, MySQL, Networking and Educational game design.</p>
-								<a href="http://52.6.243.86:8083/" class="image fit thumb" id="game1"><img src="images/thumbs/game1.jpg" alt=""/></a>
 								<script type="text/javascript" src="https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js"></script>
-								<script type="text/javascript">
-									function DoThang(){
-										var config = {
-											width: 600, 
-											height: 600,
-											params: { enableDebugging:"0" }
-											
-										};
-										var u = new UnityObject2(config);
-										
-										jQuery(function() {
-
-											var $missingScreen = jQuery("#game1");
-											var $brokenScreen = jQuery("#game1").find(".broken");
-											$missingScreen.hide();
-											$brokenScreen.hide();
-
-											u.observeProgress(function (progress) {
-												switch(progress.pluginStatus) {
-													case "broken":
-														$brokenScreen.find("a").click(function (e) {
-															e.stopPropagation();
-															e.preventDefault();
-															u.installPlugin();
-															return false;
-														});
-														$brokenScreen.show();
-													break;
-													case "missing":
-														$missingScreen.find("a").click(function (e) {
-															e.stopPropagation();
-															e.preventDefault();
-															u.installPlugin();
-															return false;
-														});
-														$missingScreen.show();
-													break;
-													case "installed":
-														$missingScreen.remove();
-													break;
-													case "first":
-													break;
-												}
-											});
-											u.initPlugin(jQuery("#game1")[0], "game.unity3d");
-										});
-									}
-								</script>
 							</article>
-							<article >
-								<h3>DeThroned!</h3>
+							<article class="6u 12u$(xsmall) work-item">
+							    <a href="images/thumbs/game2.jpg" class="image fit thumb"><img src="images/thumbs/game2.jpg" alt="" /></a>
+								<h3> <a href="https://goo.gl/ohsNU3">DeThroned! </a></h3>
 								<p>A party card game with real-time combat and mystery player mechanic. Game Design by me, Kickstarter coming soon! </p>
-								<a href="https://goo.gl/ohsNU3" class="image fit thumb"><img src="images/thumbs/game2.jpg" alt="" /></a>
 							</article>
 							<article class="6u 12u$(xsmall) work-item">
 								<a href="images/fulls/03.jpg" class="image fit thumb"><img src="images/thumbs/03.jpg" alt="" /></a>
-								<h3>Past projects to be added. . .</h3>
-								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-							</article>
-							<article class="6u$ 12u$(xsmall) work-item">
-								<a href="images/fulls/04.jpg" class="image fit thumb"><img src="images/thumbs/04.jpg" alt="" /></a>
-								<h3>Past projects to be added. . .</h3>
-								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-							</article>
-							<article class="6u 12u$(xsmall) work-item">
-								<a href="images/fulls/05.jpg" class="image fit thumb"><img src="images/thumbs/05.jpg" alt="" /></a>
-								<h3>Past projects to be added. . .</h3>
-								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-							</article>
-							<article class="6u$ 12u$(xsmall) work-item">
-								<a href="images/fulls/06.jpg" class="image fit thumb"><img src="images/thumbs/06.jpg" alt="" /></a>
 								<h3>Past projects to be added. . .</h3>
 								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
 							</article>
@@ -537,13 +475,13 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<footer id="footer">
 				<ul class="icons">
 					<strong>
-					<li><a href="http://goo.gl/obovkP" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
-					<li><a href="http://goo.gl/h12SdR" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-					<li><a href="http://goo.gl/PCusL9" class="icon fa-tumblr"><span class="label">Tumblr</span></a></li>
-					<li><a href="http://goo.gl/92p0aG" class="icon fa-github"><span class="label">Github</span></a></li>
-					<li><a href="http://goo.gl/jbVzCK" class="icon fa-bitbucket"><span class="label">Bitbucket</span></a></li>
-					<li><a href="https://goo.gl/72fa7u" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-					<li><a href="https://goo.gl/RgMcwj" class="icon fa-youtube"><span class="label">Youtube</span></a></li>
+					<li><a href="http://goo.gl/obovkP" TARGET="_top" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+					<li><a href="http://goo.gl/h12SdR" TARGET="_top" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="http://goo.gl/PCusL9" TARGET="_top" class="icon fa-tumblr"><span class="label">Tumblr</span></a></li>
+					<li><a href="http://goo.gl/92p0aG" TARGET="_top" class="icon fa-github"><span class="label">Github</span></a></li>
+					<li><a href="http://goo.gl/jbVzCK" TARGET="_top" class="icon fa-bitbucket"><span class="label">Bitbucket</span></a></li>
+					<li><a href="https://goo.gl/72fa7u" TARGET="_top" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+					<li><a href="https://goo.gl/RgMcwj" TARGET="_top" class="icon fa-youtube"><span class="label">Youtube</span></a></li>
 					<li><a href="mailto:eliot@kitelion.me" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
 					</strong>
 				</ul>
