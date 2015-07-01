@@ -1,13 +1,9 @@
-function BuildFrame(number, xPos, yPos) {
-    console.log("Building Frame!");
-    this.isAlive = false;
+function Cell(initialState) {
+    this.isAlive = initialState;
     this.willBeAlive = false;
-    this.number = number;
-    this.x = xPos;
-    this.y = yPos;
 }
 
-BuildFrame.prototype.computeNextState = function(aliveNeighborsCount) {
+Cell.prototype.computeNextState = function(aliveNeighborsCount) {
     if(aliveNeighborsCount == 3){
         this.willBeAlive = true;
     } else if(aliveNeighborsCount > 3 || aliveNeighborsCount < 2) {
@@ -19,6 +15,6 @@ BuildFrame.prototype.computeNextState = function(aliveNeighborsCount) {
     return this.willBeAlive;
 };
 
-BuildFrame.prototype.nextState = function(){
+Cell.prototype.nextState = function(){
     this.isAlive = this.willBeAlive;
 }
