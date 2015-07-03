@@ -98,8 +98,8 @@
 
 			// Lightbox gallery.
 				$window.on('load', function() {
-
-					$('#two').poptrox({
+					//intentionally mispelled to disable the popup.
+					$('#twoDGSFKJ').poptrox({
 						caption: function($a) { return $a.next('h3').text(); },
 						overlayColor: '#2c2c2c',
 						overlayOpacity: 0.85,
@@ -108,8 +108,8 @@
 						selector: '.work-item a.image',
 						usePopupCaption: true,
 						usePopupDefaultStyling: false,
-						usePopupEasyClose: false,
-						usePopupNav: true,
+						usePopupEasyClose: true,
+						usePopupNav: false,
 						windowMargin: (skel.breakpoint('small').active ? 0 : 50)
 					});
 
