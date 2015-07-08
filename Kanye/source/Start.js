@@ -8,7 +8,6 @@
 // Kanye's Game of Life	   
 
 
-Such Kanye WoW
 var w = window.innerWidth,
     h = window.innerHeight,
     columns = 30,
