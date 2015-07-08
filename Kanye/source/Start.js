@@ -29,14 +29,16 @@ function PlayLoop(){
 	
     circle = circle.data(canvas.aliveCells(),function(d){return d.n});
     circle.enter().append("rect")
-			.style("fill","url(#kanye)")
-            .attr("x", function(d){return d.x*wRatio})
-            .attr("y", function(d){return d.y*hRatio})
-			.transition().duration(1000)
+			.style("fill","url(#kanye2)")
+            .attr("x", function(d){return d.x*hRatio-radius})
+            .attr("y", function(d){return d.y*hRatio-radius})
+			.transition().duration(2000)
+				.style("fill","url(#kanye2)")
 				.attr("width", radius)
 				.attr("height", radius)
     circle.exit()
-        .transition().duration(1000)
+		.style("fill","url(#kanye1)")
+        .transition().duration(2000)
             .attr("width", 0)
 			.attr("height", 0)
         .remove();
