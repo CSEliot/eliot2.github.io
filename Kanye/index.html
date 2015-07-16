@@ -1,27 +1,31 @@
 <!doctype html>
+<meta charset="utf-8">
 <html>
 <body>
+<style type="text/css">
+html,body{
+    margin: 0;
+    overflow: visible;
+}
+rect {
+    fill: #000000;
+}
+</style>
+
+<input id="ToggleAutorun" type="button" value="Toggle Autorun" onclick="ToggleAutorun();" /> 
+<input id="Step" type="button" value="Step Forward" onclick="Step();" /> 
+Ticks: <label id="Ticks"> 0 </label>
+Speed: <input id="Speed" type="number" value=1/>
 
 <!-- Load dependencies-->
+<script type="text/javascript" src="source/jquery.min.js"></script>
+<script type="text/javascript" src="source/d3.v2.min.js"></script>
 <script type="text/javascript" src="source/Frame.js"></script>
 <script type="text/javascript" src="source/Canvas.js"></script>
-<script type="text/javascript" src="source/d3.v2.js"></script>
-
-<!-- Create Kanye -->
-Such Kanye WoW
-<svg x="0" y="0">
-	<defs>
-		<pattern id="kanye1" x="0" y="0" width="23" height="23">
-			<image xlink:href="kanye.png" x="0" y="0" width="23" height="23"/>
-		</pattern>
-		<pattern id="kanye2" x="0" y="0" width="23" height="23">
-			<image xlink:href="kanye2.jpg" x="0" y="0" width="23" height="23"/>
-		</pattern>
-	</defs>
-</svg>
 
 <!--Launch Conway's Game of Life -->
 <script type="text/javascript" src="source/Start.js"></script>
+ 
  
 </script>
 </body>

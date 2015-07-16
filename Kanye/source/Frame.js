@@ -1,10 +1,7 @@
-function BuildFrame(number, xPos, yPos) {
-    console.log("Building Frame!");
-    this.isAlive = false;
+function BuildFrame(status) {
+    //Each frame starts dead. Later on they get filled with Kanye's
+    this.isAlive = status;
     this.willBeAlive = false;
-    this.number = number;
-    this.x = xPos;
-    this.y = yPos;
 }
 
 BuildFrame.prototype.computeNextState = function(aliveNeighborsCount) {

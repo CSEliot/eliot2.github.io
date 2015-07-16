@@ -5,14 +5,15 @@ function BuildCanvas(rows, columns) {
     this.Canvas = new Array(rows);
     
     var number = 0;
-    for(var x = 0; x < rows; x++){
+    for(var x = -1; ++x < rows;){
         this.Canvas[x] = new Array(columns);
         
         //Create a frame container at each location.
-        for(var y = 0; y < columns; y++){
-            
-            number = number + 1;
-            var Frame = new BuildFrame(number, x, y);
+        for(var y = -1; ++y < columns;){
+            var Frame = new BuildFrame(false);
+			Frame.number = number++;
+			Frame.x = x;
+			Frame.y = y;
             this.Canvas[x][y] = Frame;
         }
     }
