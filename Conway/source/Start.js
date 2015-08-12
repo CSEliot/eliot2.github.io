@@ -15,8 +15,8 @@ var w = window.innerWidth/2,
 //to get a fitting square we get the smaller of the two:
 if(h > w){h = w;}else{w = h;}	
  
-var columns = 10, 
-    rows = 10,
+var columns = 30, 
+    rows = 30,
     wRatio = w/columns,
     hRatio = h/rows;
 	//To fit on any size screen we get a ratio for each square.
