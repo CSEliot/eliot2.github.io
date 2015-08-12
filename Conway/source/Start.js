@@ -55,7 +55,7 @@ function PlayLoop(){
 		.style("fill","grey");
 
 	if(autorun){
-		setTimeout(PlayLoop,10000+speed*10000);
+		setTimeout(PlayLoop,2000+speed);
 	}
 	$("label#Ticks").html(ticks);
 	speed = $("input#Speed").val() * 1000;
