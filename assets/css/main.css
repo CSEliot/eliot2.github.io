@@ -1975,10 +1975,11 @@
 			font-weight: normal;
 			text-transform: none !important;
 		}
-
+	/*
 		.icon > .label {
 			display: none;
 		}
+	*/
 
 /* Image */
 
@@ -2460,8 +2461,17 @@
 			margin: 0;
 		}
 
-/* Header */
 
+		
+
+/* For hiding on Non-phones. */
+.mobileShow { display: none;}
+   @media only screen
+   and (min-device-width : 320px)
+   and (max-device-width : 480px){ .mobileShow { display: inline;}}
+
+/* Header */
+   
 	#header {
 		background-color: #1f1815;
 		background-attachment: scroll,								fixed;
@@ -2478,6 +2488,9 @@
 		top: 0;
 		width: 35%;
 	}
+		#header .icons {
+			margin: 1em 0 0 0;
+		}
 
 		#header strong, #header b {
 			color: #ffffff;
@@ -2514,7 +2527,7 @@
 			margin: 1em 0 0 0;
 		}
 
-			#footer .icons a {
+			#footer .icons a{
 				color: rgba(255, 255, 255, 1);
 			}
 
