@@ -1960,7 +1960,6 @@
 		}
 
 /* Icon */
-
 	.icon {
 		text-decoration: none;
 		border-bottom: none;
@@ -1975,11 +1974,10 @@
 			font-weight: normal;
 			text-transform: none !important;
 		}
-	/*
+
 		.icon > .label {
 			display: none;
 		}
-	*/
 
 /* Image */
 
@@ -2340,7 +2338,7 @@
 		height: 3.15em;
 		height: calc(2.75em + 6px);
 		line-height: 2.75em;
-		min-width: 10em;
+		min-width: 8em;
 		padding: 0 1.5em;
 		text-align: center;
 		text-decoration: none;
@@ -2461,17 +2459,8 @@
 			margin: 0;
 		}
 
-
-		
-
-/* For hiding on Non-phones. */
-.mobileShow { display: none;}
-   @media only screen
-   and (min-device-width : 320px)
-   and (max-device-width : 480px){ .mobileShow { display: inline;}}
-
 /* Header */
-   
+
 	#header {
 		background-color: #1f1815;
 		background-attachment: scroll,								fixed;
@@ -2488,9 +2477,6 @@
 		top: 0;
 		width: 35%;
 	}
-		#header .icons {
-			margin: 1em 0 0 0;
-		}
 
 		#header strong, #header b {
 			color: #ffffff;
@@ -2527,7 +2513,7 @@
 			margin: 1em 0 0 0;
 		}
 
-			#footer .icons a{
+			#footer .icons a {
 				color: rgba(255, 255, 255, 1);
 			}
 
@@ -2568,8 +2554,8 @@
 
 		#main > section {
 			border-top: solid 2px #efefef;
-			margin: 4em 0 0 0;
-			padding: 4em 0 0 0;
+			margin: 1em 0 0 0;
+			padding: 1em 0 0 0;
 		}
 
 			#main > section:first-child {

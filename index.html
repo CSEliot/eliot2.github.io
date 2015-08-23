@@ -8,7 +8,21 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>KiteLion Games and Projects by Eliot Leo Carney-Seim</title>
-		<script type='text/javascript' src='https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js'></script>
+		<!-- Dependencies -->
+		<script src="assets/js/skel.min.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.poptrox.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+		<script src="assets/js/main.js"></script>
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		  ga('create', 'UA-63603525-1', 'auto');
+		  ga('send', 'pageview');
+		</script>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -21,11 +35,12 @@
 		<meta name="msapplication-TileColor" content="#ffffff">
 		<meta name="msapplication-TileImage" content="images/ms-icon-144x144.png">
 		<meta name="theme-color" content="#ffffff">
+		<!-- Disables buttons when not mobile. On mobile, different format-->
+		<script>if(!skel.vars.mobile){$(document).ready(function(){$("#mobileOnly").hide();});}</script>
 	</head>
 	<body id="top">
-		<!-- Header -->
 			<header id="header">
-					<div class="mobileShow">
+					<div id="mobileOnly">
 						<ul class="icons">
 							<li><a href="http://goo.gl/obovkP" TARGET="_top" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
 							<li><a href="http://goo.gl/h12SdR" TARGET="_top" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
@@ -75,9 +90,16 @@
 							<li><a href="#" class="button">Learn More</a></li>
 						</ul>-->
 					</section>
-
+				<section>
+					<a href="#Games" class="button">Games</a>
+					<a href="#Projects" class="button">Projects</a>
+					<a href="#Contact" class="button">Contact</a>
+					<a href="http://goo.gl/PCusL9" class="button">Blog</a>
+					<a href="#Resume" class="button">Resume</a>
+				</section>
 				<!-- Two Games -->
 					<section id="two">
+						<a name="Games"></a>
 						<h2>Latest Games</h2>
 						<div class="row">
 							<article class="6u 12u$(xsmall) work-item">
@@ -105,13 +127,14 @@
 							<article class="6u 12u$(xsmall) work-item">
 								<a href="http://goo.gl/kZoVwI" class="image fit thumb"><img src="images/thumbs/weakmeals.png" alt=""/></a>
 								<h3> <a href="http://goo.gl/kZoVwI"></a>Find the Weakest Meal</h3>
-								<p> A parody game inspired by MeakMill. Made over 2/3 hours.</p>
+								<p> A parody game inspired by MeakMill. Made in under an hour.</p>
 								<script type="text/javascript" src="https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js"></script>
 							</article>
 							</div>
 					</section>
 				<!-- Two Projects-->
 					<section id="two">
+						<a name="Projects"></a>
 						<h2>Latest Projects</h2>
 						<div class="row">
 							<article class="6u 12u$(xsmall) work-item">
@@ -140,6 +163,7 @@
 							<li><a href="https://goo.gl/obovkP" class="button">Full Portfolio</a></li>
 						</ul>
 				<!-- Three -->
+					<a name="Contact"></a>
 					<section id="three">
 						<h2>Get In Touch</h2>
 						<img src="images/apple-icon-180x180.png"></img>
@@ -161,7 +185,7 @@
 								<ul class="labeled-icons" >
 									<li>
 										<h3 class="icon fa-home"><span class="label">Address</span></h3>
-										509 Riderwood Drive<br />
+										910 Jamieson Road<br />
 										Lutherville-Timonium, MD 21092<br />
 										United States
 									</li>
@@ -177,8 +201,12 @@
 							</div>
 						</div>
 					</section>
+					<a name="Resume"></a>
+					<section>
+					<h2>Resume</h2>
+					<iframe width=100% height=1400 src="https://docs.google.com/document/d/1AQnQhyCSicU0LIs1MZ8oYtd1So6W4Vl6TAtVgPT08IE/pub?embedded=true></iframe>
+					</section>
 			</div>
-
 		<!-- Footer -->
 			<footer id="footer">
 				<ul class="icons">
@@ -192,27 +220,8 @@
 					<li><a href="mailto:eliot@kitelion.me" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
 				</ul>
 				<ul class="copyright">
-					<li>&copy; KiteLion 2015</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li><li>Version: 0.43</li>
+					<li>&copy; KiteLion 2015</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li><li>Version: 1.0</li>
 				</ul>
 			</footer>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.poptrox.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="assets/js/main.js"></script>
-			<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-63603525-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
 	</body>
 </html>
