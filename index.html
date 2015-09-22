@@ -21,9 +21,10 @@
 			(console.log("Test2");)
 			
 			(window.location != window.parent.location)? document.referrer : document.location;
+			document.referrer;
 		-->
 		<script>
-			var myurl = document.referrer;
+			var myurl = document.getElementById("iframe_id").contentWindow.location.href
 			console.log("Test: "+myurl);
 		</script>
 		<script>
@@ -226,7 +227,7 @@
 				<li><a href="mailto:eliot@kitelion.me" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
 			</ul>
 			<ul class="copyright">
-				<li>&copy; KiteLion 2015</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li><li>Version: 1.10<li>
+				<li>&copy; KiteLion 2015</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li><li>Version: 1.11<li>
 			</ul>
 		</footer>
 	</body>
