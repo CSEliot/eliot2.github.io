@@ -15,8 +15,15 @@
 		<script src="assets/js/util.js"></script>
 		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 		<script src="assets/js/main.js"></script>
+		<!-- Tried: 
+			console.log("Test1");
+			(console.log(""+window.location.href);)
+			(console.log("Test2");)
+			
+			(window.location != window.parent.location)? document.referrer : document.location;
+		-->
 		<script>
-			var myurl = (window.location != window.parent.location)? document.referrer : document.location;
+			var myurl = document.referrer;
 			console.log("Test: "+myurl);
 		</script>
 		<script>
@@ -219,7 +226,7 @@
 				<li><a href="mailto:eliot@kitelion.me" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
 			</ul>
 			<ul class="copyright">
-				<li>&copy; KiteLion 2015</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li><li>Version: 1.09<li>
+				<li>&copy; KiteLion 2015</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li><li>Version: 1.10<li>
 			</ul>
 		</footer>
 	</body>
