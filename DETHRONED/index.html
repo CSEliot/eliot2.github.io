@@ -39,23 +39,26 @@
 
 				<!-- Footer -->
 					<footer id="footer">
+                                    <audio controls>
+                        <source src="assets/music/Teaser.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
 						<span class="copyright">&copy; 
                         Music: 
                             <a href="http://www.abstractionmusic.com">AbstractionMusic</a> 
                         Design: 
-                            <a href="http://html5up.net">HTML5 UP</a>.</span>
-					</footer>
+                            <a href="http://html5up.net">HTML5 UP</a>.  </span>
+					
+                    </footer>
 
 			</div>
 		</div>
 		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-        <audio id="BGMusic" src="assets/music/Teaser.mp3" loop></audio>
+        
 		<script>
 			window.onload = function() { document.body.className = ''; }
 			window.ontouchmove = function() { return false; }
 			window.onorientationchange = function() { document.body.scrollTop = 0; }
-            document.getElementById('BGMusic').volume=0.1;
-            document.getElementById('BGMusic').play();
 		</script>
-	</body>
+    </body>
 </html>
