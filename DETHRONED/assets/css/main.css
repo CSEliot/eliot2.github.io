@@ -517,11 +517,11 @@
 	}
 
 		#header h1 {
-            top: -1em;
+            top: 1em;
             position: relative;
             text-align: center;
             vertical-align: middle;
-            color: black;
+            color: whitesmoke;
             font-family: dethroned;
 			font-size: 7.35em;
 			font-weight: 900;
@@ -533,14 +533,14 @@
             bottom: -0.20em;
             position: relative;
             text-align: center;
-            color: black;
+            color: ghostwhite;
             font-family: dethroned;
 			font-size: 3.25em;
 			margin: 0.75em 0 0.25em 0;
 		}
 
 		#header nav {
-			margin: 3.5em 0 0 0;
+			margin: 1.5em 0 0 0;
 		}
 
 			#header nav li {
