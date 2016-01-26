@@ -16,7 +16,7 @@
 		font-size: 100%;
 		font: inherit;
 		vertical-align: baseline;
-        color: white
+        color: white;
 	}
 
 @font-face{
@@ -199,6 +199,7 @@
 		opacity: 1;
 		position: fixed;
 		top: 0;
+        background-color: #800001;
 	}
 
 	@-moz-keyframes bg {
