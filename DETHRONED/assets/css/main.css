@@ -193,11 +193,12 @@
 	/* Set your background with this */
 
 		background: #000000 url("images/bg.jpg") top left;
+        
 		background-repeat: repeat-x;
-		height: 150%;
+        background-size: cover;
+		height: 100%;
 		left: 0;
 		opacity: 1;
-		position: fixed;
 		top: 0;
         background-color: #800001;
 	}
@@ -262,13 +263,14 @@
 			-moz-transform: translate3d(-2250px,0,0);
 			-webkit-transform: translate3d(-2250px,0,0);
 			-ms-transform: translate3d(-2250px,0,0);
-			transform: translate3d(-2250px,0,0);
+			transform: translate
+                3d(-2250px,0,0);
 		}
 	}
 
 	#bg {
 		background-size: 2250px auto;
-		width: 6750px;
+		width: 750px;
 	}
 
 /* Overlay */
