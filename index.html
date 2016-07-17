@@ -260,15 +260,17 @@
 							<p>I check my email at least once every other day, though usually more frequently.<br />
                             Feel free to send me a message.</p>
 
-							<form method="POST" action="http://formspree.io/eliot@kitelion.me">
+							<form action="http://formspree.io/eliot@kitelion.me" method="POST" >
 								<div class="row">
-									<div class="6u 12u$(mobile)"><input type="text" name="name" placeholder="Name" /></div>
-									<div class="6u$ 12u$(mobile)"><input type="text" name="email" placeholder="Email" /></div>
+									<div class="6u 12u$(mobile)">
+										<input type="text" name="name" placeholder="Name" /></div>
+									<div class="6u$ 12u$(mobile)">
+										<input type="email" name="email" placeholder="Email" /></div>
 									<div class="12u$">
 										<textarea name="message" placeholder="Message"></textarea>
 									</div>
 									<div class="12u$">
-										<input type="submit" value="Send Message" />
+										<input type="submit" value="Send" />
 									</div>
 								</div>
 							</form>
