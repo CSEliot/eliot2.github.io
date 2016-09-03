@@ -92,6 +92,7 @@ header h2 {
 .inner {
   width: 620px;
   margin: 0 auto;
+    color: aqua;
 }
 
 #container .inner img {
@@ -363,6 +364,7 @@ footer a:hover {
   .inner {
     width: 94%;
     margin: 0 auto;
+      color: aqua;
   }
 }
 
