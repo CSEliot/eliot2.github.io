@@ -138,8 +138,7 @@
 	.item.thumb {
 		display: block;
 		position: relative;
-		background: #1a1f2c;
-		background: rgba(255, 255, 255, 0.25);
+		background: #fff url("images/overlay.png");
 		cursor: default;
 	}
 
@@ -159,6 +158,7 @@
 		.item.thumb img {
 			display: block;
 			z-index: 1;
+            background: #fff url("images/overlay.png");
 		}
 
 /* Icons */
@@ -194,13 +194,13 @@
 
 	#header {
 		position: relative;
-		background: #d64760 url("images/overlay.png");
-		color: #fff;
+		background: #fff url("images/overlay.png");
+		color: #630d0d;
 		cursor: default;
 	}
 
 		#header p {
-			opacity: 0.65;
+			opacity: 1.00;
 		}
 
 /* Desktop */
@@ -301,6 +301,7 @@
 				#header h1 {
 					font-size: 3em;
 					line-height: 1em;
+                    color: #630d0d;
 				}
 
 				#header p {
