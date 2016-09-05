@@ -2721,10 +2721,12 @@
 
 			.tiles article h3 {
 				font-size: 1.75em;
+                color: #eab71d;
 			}
 
 				.tiles article h3 a:hover {
 /*					color: inherit !important;*/
+                    color: #eab71d;
 				}
 
 			.tiles article .link.primary {
@@ -2894,7 +2896,7 @@
 			-webkit-flex-direction: row;
 			-ms-flex-direction: row;
 			flex-direction: row;
-			background-color: #2e3450;
+			background-color: #630D0D;
 		}
 
 			.spotlights > section > .image {
@@ -2943,6 +2945,7 @@
 				align-items: center;
 				padding: 2em 3em 0.1em 3em ;
 				width: 70%;
+                color: #eab71d;
 			}
 
 				.spotlights > section > .content > .inner {
