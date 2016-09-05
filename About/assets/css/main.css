@@ -2724,7 +2724,7 @@
 			}
 
 				.tiles article h3 a:hover {
-					color: inherit !important;
+/*					color: inherit !important;*/
 				}
 
 			.tiles article .link.primary {
@@ -2786,11 +2786,12 @@
 			}
 
 			.tiles article:nth-child(6n - 5):before {
-				background-color: #6fc3df;
+                background: url("../../images/personal-face.png");
+                background-size: cover;
+                background-position: center;
 			}
 
 			.tiles article:nth-child(6n - 4):before {
-				background-color: #8d82c4;
 			}
 
 			.tiles article:nth-child(6n - 3):before {
@@ -2846,7 +2847,7 @@
 		@media screen and (max-width: 480px) {
 
 			.tiles {
-				display: block;
+				display: none;
 			}
 
 				.tiles article {
@@ -3335,7 +3336,7 @@
 		-webkit-align-items: center;
 		-ms-align-items: center;
 		align-items: center;
-		background-image: url("../../images/banner.jpg");
+		background-image: url("../../../images/bg.jpg");
 		display: -moz-flex;
 		display: -webkit-flex;
 		display: -ms-flex;
@@ -3368,12 +3369,12 @@
 			-webkit-pointer-events: none;
 			-ms-pointer-events: none;
 			pointer-events: none;
-			background-color: #242943;
+			background-color: #630d0d;
 			content: '';
 			display: block;
 			height: 100%;
 			left: 0;
-			opacity: 0.85;
+			opacity: 0.1;
 			position: absolute;
 			top: 0;
 			width: 100%;
@@ -3382,6 +3383,7 @@
 
 		#banner h1 {
 			font-size: 3.25em;
+            color: #eab71d;
 		}
 
 		#banner > .inner {
@@ -3432,10 +3434,11 @@
 				}
 
 				#banner > .inner .content p {
-					font-size: 0.7em;
-					font-weight: 600;
+					font-size: 0.9em;
+					font-weight: 900;
 					letter-spacing: 0.25em;
 					text-transform: uppercase;
+                    color: #eab71d;
 				}
 
 		#banner.major {
@@ -3547,7 +3550,7 @@
 /* Main */
 
 	#main {
-		background-color: #2a2f4a;
+		background-color: #630d0d;
 	}
 
 		#main > * {

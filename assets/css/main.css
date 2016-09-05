@@ -457,8 +457,7 @@
 						content: "\00d7";
 					}
 
-	}
-
+	   }
 /* Mobile */
 
 	@media screen and (max-width: 736px) {
@@ -487,6 +486,7 @@
 					float: left;
 					height: 9em;
 					position: relative;
+                    background: #fff url("images/overlay.png");
 				}
 
 					.item.thumb h2 {
@@ -503,6 +503,7 @@
 
 					.item.thumb img {
 						display: none;
+                        background: #fff url("images/overlay.png");
 					}
 
 		/* Wrapper */
@@ -523,6 +524,7 @@
 
 				#header h1 {
 					font-size: 2em;
+                    color: #630d0d;
 				}
 
 				#header p {
