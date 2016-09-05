@@ -2786,7 +2786,7 @@
 			}
 
 			.tiles article:nth-child(6n - 5):before {
-                background: url("../../images/personal-face.png");
+                background: url("../../images/it_me.jpg");
                 background-size: cover;
                 background-position: center;
 			}
@@ -2847,7 +2847,7 @@
 		@media screen and (max-width: 480px) {
 
 			.tiles {
-				display: none;
+				display: block;
 			}
 
 				.tiles article {
