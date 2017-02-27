@@ -2573,6 +2573,16 @@ Module.expectedDataFileDownloads++;
       console.error('package error:', error);
     };
   
+      var fetched = null, fetchedCallback = null;
+      fetchRemotePackageWrapper(REMOTE_PACKAGE_NAME, REMOTE_PACKAGE_SIZE, function(data) {
+        if (fetchedCallback) {
+          fetchedCallback(data);
+          fetchedCallback = null;
+        } else {
+          fetched = data;
+        }
+      }, handleError);
+    
   function runWithFS() {
 
     function assert(check, msg) {
@@ -2621,95 +2631,6 @@ Module['FS_createPath']('/Managed/mono', '2.0', true, true);
         }
 
   
-      var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
-      var IDB_RO = "readonly";
-      var IDB_RW = "readwrite";
-      var DB_NAME = "EM_PRELOAD_CACHE";
-      var DB_VERSION = 1;
-      var METADATA_STORE_NAME = 'METADATA';
-      var PACKAGE_STORE_NAME = 'PACKAGES';
-      function openDatabase(callback, errback) {
-        try {
-          var openRequest = indexedDB.open(DB_NAME, DB_VERSION);
-        } catch (e) {
-          return errback(e);
-        }
-        openRequest.onupgradeneeded = function(event) {
-          var db = event.target.result;
-
-          if(db.objectStoreNames.contains(PACKAGE_STORE_NAME)) {
-            db.deleteObjectStore(PACKAGE_STORE_NAME);
-          }
-          var packages = db.createObjectStore(PACKAGE_STORE_NAME);
-
-          if(db.objectStoreNames.contains(METADATA_STORE_NAME)) {
-            db.deleteObjectStore(METADATA_STORE_NAME);
-          }
-          var metadata = db.createObjectStore(METADATA_STORE_NAME);
-        };
-        openRequest.onsuccess = function(event) {
-          var db = event.target.result;
-          callback(db);
-        };
-        openRequest.onerror = function(error) {
-          errback(error);
-        };
-      };
-
-      /* Check if there's a cached package, and if so whether it's the latest available */
-      function checkCachedPackage(db, packageName, callback, errback) {
-        var transaction = db.transaction([METADATA_STORE_NAME], IDB_RO);
-        var metadata = transaction.objectStore(METADATA_STORE_NAME);
-
-        var getRequest = metadata.get("metadata/" + packageName);
-        getRequest.onsuccess = function(event) {
-          var result = event.target.result;
-          if (!result) {
-            return callback(false);
-          } else {
-            return callback(PACKAGE_UUID === result.uuid);
-          }
-        };
-        getRequest.onerror = function(error) {
-          errback(error);
-        };
-      };
-
-      function fetchCachedPackage(db, packageName, callback, errback) {
-        var transaction = db.transaction([PACKAGE_STORE_NAME], IDB_RO);
-        var packages = transaction.objectStore(PACKAGE_STORE_NAME);
-
-        var getRequest = packages.get("package/" + packageName);
-        getRequest.onsuccess = function(event) {
-          var result = event.target.result;
-          callback(result);
-        };
-        getRequest.onerror = function(error) {
-          errback(error);
-        };
-      };
-
-      function cacheRemotePackage(db, packageName, packageData, packageMeta, callback, errback) {
-        var transaction_packages = db.transaction([PACKAGE_STORE_NAME], IDB_RW);
-        var packages = transaction_packages.objectStore(PACKAGE_STORE_NAME);
-
-        var putPackageRequest = packages.put(packageData, "package/" + packageName);
-        putPackageRequest.onsuccess = function(event) {
-          var transaction_metadata = db.transaction([METADATA_STORE_NAME], IDB_RW);
-          var metadata = transaction_metadata.objectStore(METADATA_STORE_NAME);
-          var putMetadataRequest = metadata.put(packageMeta, "metadata/" + packageName);
-          putMetadataRequest.onsuccess = function(event) {
-            callback(packageData);
-          };
-          putMetadataRequest.onerror = function(error) {
-            errback(error);
-          };
-        };
-        putPackageRequest.onerror = function(error) {
-          errback(error);
-        };
-      };
-    
     function processPackageData(arrayBuffer) {
       Module.finishedDataFileDownloads++;
       assert(arrayBuffer, 'Loading data file failed.');
@@ -2731,38 +2652,13 @@ Module['FS_createPath']('/Managed/mono', '2.0', true, true);
   
     if (!Module.preloadResults) Module.preloadResults = {};
   
-      function preloadFallback(error) {
-        console.error(error);
-        console.error('falling back to default preload behavior');
-        fetchRemotePackageWrapper(REMOTE_PACKAGE_NAME, REMOTE_PACKAGE_SIZE, processPackageData, handleError);
-      };
-
-      openDatabase(
-        function(db) {
-          checkCachedPackage(db, PACKAGE_PATH + PACKAGE_NAME,
-            function(useCached) {
-              Module.preloadResults[PACKAGE_NAME] = {fromCache: useCached};
-              if (useCached) {
-                console.info('loading ' + PACKAGE_NAME + ' from cache');
-                fetchCachedPackage(db, PACKAGE_PATH + PACKAGE_NAME, processPackageData, preloadFallback);
-              } else {
-                console.info('loading ' + PACKAGE_NAME + ' from remote');
-                fetchRemotePackageWrapper(REMOTE_PACKAGE_NAME, REMOTE_PACKAGE_SIZE, 
-                  function(packageData) {
-                    cacheRemotePackage(db, PACKAGE_PATH + PACKAGE_NAME, packageData, {uuid:PACKAGE_UUID}, processPackageData,
-                      function(error) {
-                        console.error(error);
-                        processPackageData(packageData);
-                      });
-                  }
-                , preloadFallback);
-              }
-            }
-          , preloadFallback);
-        }
-      , preloadFallback);
-
-      if (Module['setStatus']) Module['setStatus']('Downloading...');
+      Module.preloadResults[PACKAGE_NAME] = {fromCache: false};
+      if (fetched) {
+        processPackageData(fetched);
+        fetched = null;
+      } else {
+        fetchedCallback = processPackageData;
+      }
     
   }
   if (Module['calledRun']) {
@@ -2773,6 +2669,6 @@ Module['FS_createPath']('/Managed/mono', '2.0', true, true);
   }
 
  }
- loadPackage({"files": [{"audio": 0, "start": 0, "crunched": 0, "end": 164359, "filename": "/data.unity3d"}, {"audio": 0, "start": 164359, "crunched": 0, "end": 164661, "filename": "/methods_pointedto_by_uievents.xml"}, {"audio": 0, "start": 164661, "crunched": 0, "end": 179009, "filename": "/preserved_derived_types.xml"}, {"audio": 0, "start": 179009, "crunched": 0, "end": 2562537, "filename": "/Il2CppData/Metadata/global-metadata.dat"}, {"audio": 0, "start": 2562537, "crunched": 0, "end": 3296685, "filename": "/Resources/unity_default_resources"}, {"audio": 0, "start": 3296685, "crunched": 0, "end": 3324310, "filename": "/Managed/mono/2.0/machine.config"}], "remote_package_size": 3324310, "package_uuid": "0a8bf688-6f44-43b3-ad5f-b9c9e831ac45"});
+ loadPackage({"files": [{"audio": 0, "start": 0, "crunched": 0, "end": 164359, "filename": "/data.unity3d"}, {"audio": 0, "start": 164359, "crunched": 0, "end": 164661, "filename": "/methods_pointedto_by_uievents.xml"}, {"audio": 0, "start": 164661, "crunched": 0, "end": 179009, "filename": "/preserved_derived_types.xml"}, {"audio": 0, "start": 179009, "crunched": 0, "end": 2562545, "filename": "/Il2CppData/Metadata/global-metadata.dat"}, {"audio": 0, "start": 2562545, "crunched": 0, "end": 3296693, "filename": "/Resources/unity_default_resources"}, {"audio": 0, "start": 3296693, "crunched": 0, "end": 3324318, "filename": "/Managed/mono/2.0/machine.config"}], "remote_package_size": 3324318, "package_uuid": "cae31396-65e1-4974-a597-5eefd524f420"});
 
 })();
