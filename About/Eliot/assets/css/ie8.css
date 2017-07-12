@@ -33,7 +33,8 @@
 /* Header */
 
 	#nav ul li a {
-		color: #888;
+		color: #00FF7F;
+        font-size: 90%;
 	}
 
 		#nav ul li a.active {

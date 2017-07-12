@@ -18,6 +18,8 @@
 		vertical-align: baseline;
 	}
 
+.bottomLinks {font-size: 90%;}
+
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 		display: block;
 	}
@@ -922,7 +924,7 @@
 		}
 
 		.row.\32 00\25 > * {
-			padding: 40px 0 0 40px;
+			padding: 400px 0 0 40px;
 		}
 
 		.row.\32 00\25 {
@@ -1633,8 +1635,10 @@
 
 	a {
 		text-decoration: none;
-		color: inherit;
-		border-bottom: dotted 1px rgba(128, 128, 128, 0.5);
+		color: #4682B4;
+        font-size: 150%;
+        font-style: italic;
+        font-weight: bold;
 		-moz-transition: color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
 		-webkit-transition: color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
 		-ms-transition: color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
@@ -2143,6 +2147,7 @@
 				#main > section.dark strong {
 					color: #fff;
 					border-color: inherit;
+                    font-size: 80%;
 				}
 
 				#main > section.dark a {
@@ -2261,7 +2266,7 @@
 			}
 
 			#nav ul li a {
-				font-size: 0.8em;
+				font-size: 1.8em;
 				padding-top: 0.5em;
 				padding-bottom: 0.5em;
 			}
@@ -2506,6 +2511,7 @@
 				width: 1.75em;
 				font-size: 1.5em;
 			}
+        
 
 		/* Main */
 
@@ -2536,3 +2542,4 @@
 				}
 
 	}
+

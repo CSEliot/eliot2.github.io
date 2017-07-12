@@ -211,6 +211,11 @@ hr {
 
 strong {
   font-weight: bold;
+    color:black;
+}
+
+strong:link{
+    color:black;
 }
 
 em {
