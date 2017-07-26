@@ -1,223 +1,349 @@
-Parallelism by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+Ethereal by Pixelarity
+pixelarity.com | hello@pixelarity.com
+License: pixelarity.com/license
 
 
-It's done! Parallelism was an idea I mocked up a few months ago but, due to other
-committments, didn't get around to putting to code until recently. Different to
-my more general-purpose freebies, this one's specifically built for portfolio use
-but still delivers quite a bit of customizability (via CSS and a number of settings).
-For more on how it works and how to make the most of it, jump on down to the
-"Instructions" section.
+Overview
+========
 
-Demo images* are courtesy of the supremely talented photographer Felicia Simion.
-If you like photography or just enjoy being blown away by awesome stuff, check
-out her portfolio for more stunning images:
+	Browsers deal with side-scrolling pages differently to vertically-oriented ones in
+	that they require elements (or at the very least, the top-most wrapper element) to
+	have a defined (fixed) width. This leads to a number of limitations (eg. the page
+	won't automatically grow/shrink in the same way a vertically-oriented one will), so
+	Ethereal does two things to work around this:
 
-http://ineedchemicalx.deviantart.com/
+	- The entire page is made up of "panel" elements, each of which can be assigned an
+	  optional "size" modifier (satisfying the fixed width requirement).
 
-(* = Not included! Only meant for use with my own on-site demo, so please do NOT download
-and/or use any of Felicia's work without her explicit permission!)
+	- For panels that don't use a size modifier, individual containing elements *inside*
+	  them (eg. a column) can be assigned a "span" modifier to give those a fixed width
+	  instead (also satisfying the fixed width requirement).
 
-Feedback, bug reports, and comments are not only welcome, but strongly encouraged :)
+	Another fun quirk of side-scrolling pages is how to actually implement horizontal
+	scrolling *without* resorting to using the (usually ugly) horizontal scrollbar.
+	Ethereal does this in FOUR (!) ways:
 
-AJ
-aj@lkn.io | @ajlkn
+	- Dragging: Users can simply click and drag the page left or right to scroll it around.
+	  This works exactly as you'd expect, and even has a nice "post-scroll momentum" effect.
+
+	- Scroll Wheel: Ethereal modifies* the scroll wheel's behavior to translate vertical
+	  scrolling into horizontal scrolling, allowing the user to use either the scroll wheel
+	  or trackpad to scroll the page (the latter of which retains the ability to horziontally
+	  scroll as normal, so nothing changes there).
+
+	  * Special thanks to @miorel + @pieterv of Facebook for "normalizeWheel()" :)
+
+	- Scroll Zones: Users can hover the mouse cursor on the left or right edges of the page
+	  to automatically scroll in either direction.
+
+	- Keyboard Shortcuts: Finally, users can simply use the left/right arrows, page up/down,
+	  home/end, and the spacebar to scroll the page.
+
+	Note that any (or all) of these scroll-assist features can be turned off (and in some
+	cases customized). See the top of assets/js/main.js for more information.
 
 
-Instructions:
+Span Modifiers
+==============
 
-	Overview:
+	Span modifiers are simply classes that give elements a fixed width, the size of which
+	is determined by the "unit value" associated with the modifier (eg. "span-3" means
+	"span 3 units"). These sizes are in "rem" units when used inside panels that don't
+	use a size modifier, and in percentage units when used inside panels that do.
 
-		- Item: A generic container of stuff. Said stuff can be a thumbnail, the actual
-		  page header, or whatever else you deem item worthy. Items can vary in width but
-		  are all the same height (230px by default, but you can change this with a setting).
+	Ethereal includes span modifiers ranging from 0.25 units ("span-0-25") to 10 units
+	("span-10"). Here's a partial list:
 
-		- Thumb: A special type of item that contains a thumbnail image and a title. Short
-		  for thumbnail. No relation to actual nails.
+	span-0-25     Span 0.25 units.
+	span-0-5      Span 0.5 units.
+	span-0-75     Span 0.75 units.
+	span-1        Span 1 unit.
+	span-1-25     Span 1.25 units.
+	span-1-5      Span 1.5 units.
+	span-1-75     Span 1.75 units.
+	...
+	span-9        Span 9 units.
+	span-9-25     Span 9.25 units.
+	span-9-5      Span 9.5 units.
+	span-9-75     Span 9.75 units.
+	span-10       Span 10 units.
 
-		- Reel: A whole bunch of items strung together, and the main point of interaction
-		  for users.
+
+Major Elements
+==============
+
+	Most of Ethereal's elements are pretty much what you'd expect, but there are a handful
+	of "major" ones that warrant a bit more explanation:
 
 
-	How it Works:
+	Panel
+	------
 
-		1. You (the user) add a bunch of items to the reel. Items must be assigned a width
-		   (in pixels) using the "data-width" attribute. A few examples:
+		The primary building block of Ethereal.
 
-				Generic
-				-------
+		HTML
 
-					<div class="item" data-width="300">
-						This is a generic item. Put whatever you want here.
+			<section class="panel (size modifier) (color modifier)">
+				<div class="intro (color modifier)">
+					(intro content)
+				</div>
+				<div class="inner (inner modifiers) (color modifier)">
+					(inner content)
+				</div>
+			</section>
+
+			Note: The entire "intro" child element can be excluded.
+			Note: You can have as many "intro" and "inner" child elements as you like.
+
+		Modifiers
+
+			Size
+
+				small          Use small size.
+				medium         Use medium size.
+				large          Use large size.
+
+			Color
+
+				color0         Use background color 0 (gradient).
+				color1         Use background color 1.
+				color2         Use background color 2.
+				color3         Use background color 3.
+				color4         Use background color 4.
+				color1-alt     Use background color 1 (alt).
+				color2-alt     Use background color 2 (alt).
+				color3-alt     Use background color 3 (alt).
+				color4-alt     Use background color 4 (alt).
+
+			Inner
+
+				columns        Divides child elements into columns.
+				aligned        When used with "columns", aligns content to top of panel.
+				divided        When used with "columns", separates each column with a vertical line.
+
+		Examples
+
+			Here's a very basic example:
+
+				<section class="panel medium color0">
+					<div class="intro">
+						<h2 class="major">Panel</h2>
+						<p>Just a generic panel.</p>
 					</div>
-
-					(width = whatever you want)
-
-				Thumbnail
-				---------
-
-					<article class="item thumb" data-width="275">
-						<h2>Image Title</h2>
-						<a href="path/to/fullsize.jpg"><img src="path/to/thumbnail.jpg" alt=""></a>
-					</article>
-
-					(width = width of the thumbnail image)
-
-				Page Header (which, by the way, is entirely optional)
-				-----------------------------------------------------
-
-					<div id="header" class="item" data-width="400">
-						<h1>Parallelism</h1>
-						<p>A responsive portfolio site<br />
-						template by HTML5 UP</p>
+					<div class="inner">
+						<p>Lorem ipsum dolor sit amet.</p>
 					</div>
+				</section>
 
-					(width = whatever you want)
+			And here's a more advanced example using columns and *no* size modifier:
 
-		   Congratulations. You now have a reel full of items.
+				<section class="panel color2">
+					<div class="intro">
+						<h2 class="major">Panel</h2>
+						<p>Just a generic panel.</p>
+					</div>
+					<div class="inner columns">
+						<div class="span-4">
+							<p>This column is 4 units wide.</p>
+						</div>
+						<div class="span-3">
+							<p>This column is 3 units wide.</p>
+						</div>
+						<div class="span-2">
+							<p>This column is 2 units wide.</p>
+						</div>
+					</div>
+				</section>
 
-		2. Parallelism looks at the window, figures out how many rows it can fit in the
-		   available (vertical) space, then breaks up the reel into that many rows.
-
-		3. With the reel broken up, Parallelism goes through and does a bit of scaling
-		   on each item to ensure the widths of each row are identical.
-
-		4. Profit !@#!#%$(!$%(*
-
-		So yeah, pretty simple. Also, tons of settings to mess with if you're into that
-		sort of thing (below).
-
-
-	Notes:
-
-		- Scrolling is handled in 3 ways:
-
-			1. Scrolling up/down using the mouse wheel (down = scroll right, up = scroll left)
-			2. Using the left/right arrow keys ("Scroll Keys")
-			3. Moving the mouse cursor to the far left or far right of the screen ("Scroll Zones")
-
-			Methods #2 and #3 can be disabled and customized using settings (below). Method #1
-			is always enabled.
-
-		- If you don't have enough items to require scrolling, the reel will just be centered on
-		  the screen.
-
-		- Rows will automatically factor when the viewport is resized.
-
-		- All modern desktop/mobile browsers are supported (as well as IE as far back as 8, though
-		  7 is still pretty usable).
+			Note: The "intro" child element already has a fixed width, so a span modifier
+			isn't required.
 
 
-	Settings:
+	Panel (Banner)
+	--------------
 
-		Change these at the top of js/init.js.
+		The "Banner" variant of a regular panel.
 
-		popupOverlayColor
-			Popup overlay color (default: '#1a1f2c')
+		HTML
 
-		popupOverlayOpacity
-			Popup overlay opacity (default: 0.75)
+			<section class="panel banner (size modifier) (color modifier) (orientation modifier)">
+				<div class="content (color modifier)">
+					(content)
+				</div>
+				<div class="image (image modifiers)" data-position="(image position modifier)">
+					<img src="(image URL)" alt="" />
+				</div>
+			</section>
 
-		autoStyleMobile
-			If true, mobile mode will get some automatic styling (default: true)
+		Modifiers
 
-		centerVertically
-			If true, reel will be vertically centered (default: true)
+			Orientation
 
-		introDelay
-			Delay (in ms) before showing the reel (default: 600)
+				left           Content on the left, image on the right.
+				right          Content on the right, image on the left.
 
-		introSpeed
-			Speed (in ms) at which to fade in reel (default: 750)
+			Image
 
-		itemHeight
-			Height (in px) of items (default: 230)
+				filtered       Applies a gradient filter to the image.
+				tinted         Applies a tint filter to the image.
 
-		itemWidth
-			Default width (in px) of width (default: 300)
+			Image Position (required)
 
-		marginBottom
-			Margin (in px) to preserve at the bottom of the viewport (default: 40)
+				top left       Position image in the top-left corner.
+				top            Position image along the top edge.
+				top right      Position image in the top-right corner.
+				right          Position image along the right edge.
+				bottom right   Position image in the bottom-right corner.
+				bottom         Position image along the bottom edge.
+				bottom left    Position image in the bottom-left corner.
+				left           Position image along the left edge.
+				center         Position image in the center.
 
-		marginTop
-			Margin (in px) to preserve at the top of the viewport (default: 0)
+		Example
 
-		verticalNudge
-			Nudge the reel by this value (in px) after it's been vertically centered (default: -50)
-
-		maxRows
-			Maximum number of rows (default: 3)
-
-		minRows
-			Minimum number of rows (default: 1)
-
-		padding
-			Padding (in px) between items (0 = no padding) (default: 5)
-
-		paddingColor
-			Padding color (default: '#fff')
-
-		resetScroll
-			If true, reel scroll will reset on page refresh (default: true)
-
-		scrollFactor
-			Scales the scroll delta (1 = normal, 2 = double, 0.5 = half, etc.) (default: 1)
-
-		useScrollKeys
-			If true, the left/right arrow keys will scroll the reel (default: true)
-
-		scrollKeyAmount
-			Scroll amount when using keys (default: 50)
-
-		scrollWheelTarget
-			Determines where scrollwheel events should be captured ('window' or 'reel') (default: 'window')
-
-		useScrollZones
-			If true, moving the cursor to the leftmost/rightmost edges of the reel will scroll it (default: true)
-
-		scrollZoneAmount
-			Scroll amount when using scroll zones (default: 10)
-
-		scrollZoneDelay
-			Time (in ms) to wait between scrolls when the cursor is in a scroll zone (default: 20)
-
-		scrollZoneWidth
-			Width of scroll zones (default: 40)
-
-		thumbDelay
-			Delay (in ms) before showing thumbnails (default: 1200)
-
-		thumbDelaySpread
-			Spread (in ms) to randomly stagger thumbnails (0 = don't stagger) (default: 1500)
-
-		thumbSpeed
-			Speed (in ms) at which to fade in thumbnails (default: 750)
-
-		useBlurFilter
-			If true, page will blur slightly when the popup is displayed (webkit only) (default: false)
+			<section class="panel banner medium right">
+				<div class="content color0">
+					<h1>Banner</h1>
+					<p>Lorem ipsum dolor sit amet.</p>
+				</div>
+				<div class="image" data-position="center">
+					<img src="/path/to/image.jpg" alt="" />
+				</div>
+			</section>
 
 
-Credits:
+	Panel (Spotlight)
+	-----------------
 
-	Demo Images:
-		Felicia Simion (ineedchemicalx.deviantart.com)
-			"Pasadena" (ineedchemicalx.deviantart.com/art/Pasadena-357650036)
-			"Your really got me" (ineedchemicalx.deviantart.com/art/You-really-got-me-345249340)
-			"Ad Infinitum" (ineedchemicalx.deviantart.com/art/Ad-infinitum-354203162)
-			"Different." (ineedchemicalx.deviantart.com/art/Different-353708988)
-			"Elysium" (ineedchemicalx.deviantart.com/art/Elysium-355393900)
-			"Kingdom of the Wind" (ineedchemicalx.deviantart.com/art/Kingdom-of-the-Wind-348268044)
-			"The Pursuit" (ineedchemicalx.deviantart.com/art/The-Pursuit-355003425)
-			"Boundless" (ineedchemicalx.deviantart.com/art/Boundless-291831118)
-			"The Spectators" (ineedchemicalx.deviantart.com/art/The-Spectators-342155982)
+		The "Spotlight" variant of a regular panel.
 
-	Icons:
-		Font Awesome (fortawesome.github.com/Font-Awesome)
+		HTML
 
-	Other:
-		jQuery (jquery.com)
-		html5shiv.js (@afarkas @jdalton @jon_neal @rem)
-		background-size polyfill (github.com/louisremi)
-		Respond.js (j.mp/respondjs)
-		Skel (skel.io)
+			<section class="panel spotlight (size modifier) (orientation modifier)">
+				<div class="content (span modifier)">
+					(content)
+				</div>
+				<div class="image (image modifiers)" data-position="(image position modifier)">
+					<img src="(image URL)" alt="" />
+				</div>
+			</section>
+
+		Modifiers
+
+			Orientation
+
+				left           Content on the left.
+				right          Content on the right.
+
+			Image
+
+				filtered       Applies a gradient filter to the image.
+				tinted         Applies a tint filter to the image.
+
+			Image Position (required)
+
+				top left       Position image in the top-left corner.
+				top            Position image along the top edge.
+				top right      Position image in the top-right corner.
+				right          Position image along the right edge.
+				bottom right   Position image in the bottom-right corner.
+				bottom         Position image along the bottom edge.
+				bottom left    Position image in the bottom-left corner.
+				left           Position image along the left edge.
+				center         Position image in the center.
+
+		Example
+
+			<section class="panel spotlight large right">
+				<div class="content">
+					<h1>Spotlight</h1>
+					<p>Lorem ipsum dolor sit amet.</p>
+				</div>
+				<div class="image" data-position="center">
+					<img src="/path/to/image.jpg" alt="" />
+				</div>
+			</section>
+
+
+	Gallery
+	-------
+
+		A lightbox-enabled gallery.
+
+		HTML
+
+			<div class="gallery">
+				<a href="(full image URL)" class="image (image modifiers) (span modifier)" data-position="(image position modifier)">
+					<img src="(thumbnail image URL)" alt="" />
+				</a>
+				<a href="(full image URL)" class="image (image modifiers) (span modifier)" data-position="(image position modifier)">
+					<img src="(thumbnail image URL)" alt="" />
+				</a>
+				<a href="(full image URL)" class="image (image modifiers) (span modifier)" data-position="(image position modifier)">
+					<img src="(thumbnail image URL)" alt="" />
+				</a>
+				<div class="group (span modifier)">
+					<a href="(full image URL)" class="image (image modifiers) (span modifier)" data-position="(image position modifier)">
+						<img src="(thumbnail image URL)" alt="" />
+					</a>
+					<a href="(full image URL)" class="image (image modifiers) (span modifier)" data-position="(image position modifier)">
+						<img src="(thumbnail image URL)" alt="" />
+					</a>
+					<a href="(full image URL)" class="image (image modifiers) (span modifier)" data-position="(image position modifier)">
+						<img src="(thumbnail image URL)" alt="" />
+					</a>
+					<a href="(full image URL)" class="image (image modifiers) (span modifier)" data-position="(image position modifier)">
+						<img src="(thumbnail image URL)" alt="" />
+					</a>
+					...
+				</div>
+				...
+			</div>
+
+			Note: The "group" element creates a dual-row group of images. Images inside this group will
+			automatically wrap to the next row when they exceed its width (as defined by its span modifier).
+			You can have as many groups in a gallery as you like.
+
+		Modifiers
+
+			Image
+
+				filtered       Applies a gradient filter to the image.
+				tinted         Applies a tint filter to the image.
+
+			Image Position (required)
+
+				top left       Position image in the top-left corner.
+				top            Position image along the top edge.
+				top right      Position image in the top-right corner.
+				right          Position image along the right edge.
+				bottom right   Position image in the bottom-right corner.
+				bottom         Position image along the bottom edge.
+				bottom left    Position image in the bottom-left corner.
+				left           Position image along the left edge.
+				center         Position image in the center.
+
+		Example
+
+			<div class="gallery">
+				<a href="/images/thumbnails/01.jpg" class="image filtered span-2" data-position="center">
+					<img src="/images/fulls/01.jpg" alt="" />
+				</a>
+				<a href="/images/thumbnails/02.jpg" class="image filtered span-4" data-position="center">
+					<img src="/images/fulls/02.jpg" alt="" />
+				</a>
+				<div class="group span-4">
+					<a href="/images/thumbnails/03.jpg" class="image filtered span-2" data-position="center">
+						<img src="/images/fulls/03.jpg" alt="" />
+					</a>
+					<a href="/images/thumbnails/04.jpg" class="image filtered span-2" data-position="center">
+						<img src="/images/fulls/04.jpg" alt="" />
+					</a>
+					<a href="/images/thumbnails/05.jpg" class="image filtered span-2" data-position="center">
+						<img src="/images/fulls/05.jpg" alt="" />
+					</a>
+					<a href="/images/thumbnails/06.jpg" class="image filtered span-2" data-position="center">
+						<img src="/images/fulls/06.jpg" alt="" />
+					</a>
+				</div>
+			</div>
