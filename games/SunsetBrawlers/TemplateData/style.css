@@ -1,4 +1,15 @@
-.webgl-content * {border: 0; margin: 0; padding: 0}
+body {
+    background-attachment: fixed;
+    background-color: #e1e6e1;
+    background-image: url("overlay.png"), url("bg.jpg");
+    background-repeat: repeat, repeat-x;
+    background-size: 128px 128px, cover;
+}
+
+div {
+    color:#14ADD0;
+}
+.webgl-content * {border: 0; margin: 0; padding: 0;}
 .webgl-content {position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);}
 
 .webgl-content .logo, .progress {position: absolute; left: 50%; top: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%);}
@@ -11,7 +22,9 @@
 .webgl-content .progress.Dark .empty {background-image: url('progressEmpty.Dark.png');}
 .webgl-content .progress.Dark .full {background-image: url('progressFull.Dark.png');}
 
-.webgl-content .footer {margin-top: 5px; height: 38px; line-height: 38px; font-family: Helvetica, Verdana, Arial, sans-serif; font-size: 18px;} 
+.webgl-content .footer {position: relative; top: 0px;margin-top: 5px; height: 38px; line-height: 38px; font-family: Helvetica, Verdana, Arial, sans-serif; font-size: 18px;}
+/*.webgl-content .footer .head {margin-top: 5px; height: 38px; line-height: 38px; font-family: Helvetica, Verdana, Arial, sans-serif; font-size: 18px;}*/
+.webgl-content .footer .head .text { right:200px; font-size: 200px;}
 .webgl-content .footer .webgl-logo, .title, .fullscreen {height: 100%; display: inline-block; background: transparent center no-repeat;} 
 .webgl-content .footer .webgl-logo {background-image: url('webgl-logo.png'); width: 204px; float: left;}
 .webgl-content .footer .title {margin-right: 10px; float: right;}
