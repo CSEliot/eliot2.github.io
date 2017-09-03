@@ -1,0 +1,10 @@
+{
+"TOTAL_MEMORY": 268435456,
+"dataUrl": "SunsetBrawlersDev.data.unityweb",
+"asmCodeUrl": "SunsetBrawlersDev.asm.code.unityweb",
+"asmMemoryUrl": "SunsetBrawlersDev.asm.memory.unityweb",
+"asmFrameworkUrl": "SunsetBrawlersDev.asm.framework.unityweb",
+"backgroundUrl": "SunsetBrawlersDev.jpg",
+"splashScreenStyle": "Dark",
+"backgroundColor": "#FFFFFF"
+}
