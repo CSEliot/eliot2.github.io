@@ -20,7 +20,7 @@ Module.expectedDataFileDownloads++;
     } else {
       throw 'using preloaded data can only be done on a web page or in a web worker';
     }
-    var PACKAGE_NAME = 'C:/Users/ecsit/OneDrive/Documents/Unreal Projects/DELETEME/Binaries/HTML5/DELETEME.data';
+    var PACKAGE_NAME = 'https://mega.nz/#!g5ZkUKja!JL7zxZnRHHzq1B1d9Cpx9J2tlyBnUxrRZR5QFdL_pKw' //'C:/Users/ecsit/OneDrive/Documents/Unreal Projects/DELETEME/Binaries/HTML5/DELETEME.data';
     var REMOTE_PACKAGE_BASE = 'https://mega.nz/#!g5ZkUKja!JL7zxZnRHHzq1B1d9Cpx9J2tlyBnUxrRZR5QFdL_pKw'; //'DELETEME.data';
     if (typeof Module['locateFilePackage'] === 'function' && !Module['locateFile']) {
       Module['locateFile'] = Module['locateFilePackage'];
